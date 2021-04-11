@@ -40,4 +40,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Role defined for member in Database and Seeder
+     */
+    const ROLE_MEMBER = 'member';
+
+    /**
+     * Role defined for Admin in Database and Seeder
+     */
+    const ROLE_ADMIN = 'owner';
+
+    public function roles()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
 }
