@@ -15,7 +15,7 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
 Route::get('/register_member', [RegisteredUserController::class, 'createMember'])
-                ->middleware('guest')
+                ->middleware(['auth'])
                 ->name('register_member');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])
