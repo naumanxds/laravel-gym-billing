@@ -4,6 +4,8 @@
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
+
+            <h1>Register @yield('register_heading')</h1>
         </x-slot>
 
         <!-- Validation Errors -->
@@ -31,6 +33,10 @@
             @yield('user_type')
             
             <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('dashboard') }}">
+                    {{ __('Go Back') }}
+                </a>
+
                 <x-button class="ml-4">
                     {{ __('Register') }}
                 </x-button>
