@@ -64,7 +64,7 @@ class RegisteredUserController extends Controller
         ]));
         
         $role->users()->save($user);
-            
+
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);
