@@ -71,3 +71,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('/dashboard', [DashboardController::class, 'load'])
                 ->middleware(['auth'])
                 ->name('dashboard');
+
+Route::get('/update_fee/{user}', [DashboardController::class, 'updateFee'])
+                ->middleware(['auth'])
+                ->name('update_fee');

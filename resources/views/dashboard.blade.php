@@ -38,6 +38,11 @@
                                 <td class="border px-8 py-4">{{ $member->roles->role_name }}</td>
                                 <td class="border px-8 py-4">{{ $member->updated_at->format('d-M-Y') }}</td>
                                 <td class="border px-8 py-4">Membership Comments</td>
+                                <td class="border px-8 py-4">
+                                    <a href="{{ route('update_fee', $member->id) }}">
+                                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">Update Fee  </button>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
