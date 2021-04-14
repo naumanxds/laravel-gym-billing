@@ -19,27 +19,27 @@
                     <table class="shadow-lg bg-white table-auto w-full">
                         <thead>
                             <tr>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Id</th>
                                 <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
                                 <th class="bg-blue-100 border text-left px-8 py-4">Email</th>
                                 <th class="bg-blue-100 border text-left px-8 py-4">CNIC</th>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Admin / Member</th>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Last Fee Paid On</th>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Package Details</th>
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach ($members as $member)
                             <tr>
-                                <td class="border px-8 py-4">Alfreds Futterkiste</td>
-                                <td class="border px-8 py-4">Dante Sparks</td>
-                                <td class="border px-8 py-4">Italy</td>
+                                <td class="border px-8 py-4">{{ $member->id }}</td>
+                                <td class="border px-8 py-4">{{ ucfirst($member->name) }}</td>
+                                <td class="border px-8 py-4">{{ $member->email }}</td>
+                                <td class="border px-8 py-4">CNIC Will go here</td>
+                                <td class="border px-8 py-4">{{ $member->roles->role_name }}</td>
+                                <td class="border px-8 py-4">{{ $member->updated_at->format('d-M-Y') }}</td>
+                                <td class="border px-8 py-4">Membership Comments</td>
                             </tr>
-                            <tr>
-                                <td class="border px-8 py-4">Centro comercial Moctezuma</td>
-                                <td class="border px-8 py-4">Neal Garrison</td>
-                                <td class="border px-8 py-4">Spain</td>
-                            </tr>
-                            <tr>
-                                <td class="border px-8 py-4">Ernst Handel</td>
-                                <td class="border px-8 py-4">Maggie O'Neill</td>
-                                <td class="border px-8 py-4">Austria</td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,6 +13,8 @@ class DashboardController extends Controller
      */
     public function load()
     {
-        return view('dashboard');
+        return view('dashboard', [
+            'members' => User::all()->load('roles')
+        ]);
     }
 }
