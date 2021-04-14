@@ -52,8 +52,29 @@ class User extends Authenticatable
      */
     const ROLE_ADMIN = 'owner';
 
+    /**
+     * Relation with roles table
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function roles()
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    /**
+     * @param array $package 
+     */
+    public function setPackage(array $package)
+    {
+        $this->package = json_encode($package);
+    }
+
+    /**
+     * @param string $package
+     */
+    public function getPackage(string $package)
+    {
+        return $this->package = json_decode($package);
     }
 }
