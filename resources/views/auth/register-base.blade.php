@@ -28,6 +28,20 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- CNIC -->
+            <div class="mt-4">
+                <x-label for="cnic" :value="__('CNIC')" />
+
+                <x-input id="cnic" class="block mt-1 w-full" type="text" name="cnic" :value="old('cnic')" required />
+            </div>
+            
+            <!-- Package -->
+            <div class="mt-4">
+                <x-label for="package" :value="__('Package')" />
+
+                <x-select id="package" class="block mt-1 w-full" name="package" :value="['admission_fee' => 'Admission Fee', 'monthly_fee' => 'Monthly Fee', 'trainer' => 'Trainer']" required />
+            </div>
+
             @yield('password_field')
 
             @yield('user_type')

@@ -52,6 +52,7 @@ class RegisteredUserController extends Controller
             $validationCriteria['password'] = 'required|string|confirmed|min:8';
             $role = Role::where('role_name', User::ROLE_ADMIN)->first();
         } else {
+            $validationCriteria['package'] = 'required|string';
             $role = Role::where('role_name', User::ROLE_MEMBER)->first();
         }
 
