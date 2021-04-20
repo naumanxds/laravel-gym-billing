@@ -46,25 +46,30 @@ class RegisteredUserController extends Controller
         $validationCriteria = [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'cnic' => 'required|string|min:14|max:14'
         ];
-
         if ($request->user_type == User::ROLE_ADMIN) {
             $validationCriteria['password'] = 'required|string|confirmed|min:8';
             $role = Role::where('role_name', User::ROLE_ADMIN)->first();
+            $login = true;
         } else {
             $validationCriteria['package'] = 'required|string';
             $role = Role::where('role_name', User::ROLE_MEMBER)->first();
+            $login = false;
         }
 
         $request->validate($validationCriteria);
-
-        Auth::login($user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => (isset($request->password)) ? Hash::make($request->password) : null,
-        ]));
-        
+            'package' => $request->package,
+            'cnic' => $request->cnic,
+        ]);
         $role->users()->save($user);
+        if ($login) {
+            Auth::login($user);
+        }
 
         event(new Registered($user));
 

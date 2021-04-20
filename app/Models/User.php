@@ -20,7 +20,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'updated_at'
+        'updated_at',
+        'package',
+        'cnic'
     ];
 
     /**
@@ -63,17 +65,19 @@ class User extends Authenticatable
     }
 
     /**
-     * @param array $package 
+     * @param string $package
      */
-    public function setPackage(array $package)
+    public function setPackageAttribute($package)
     {
-        $this->package = json_encode($package);
+        $this->attributes['package'] = json_encode($package);
     }
 
     /**
      * @param string $package
+     * 
+     * @return string 
      */
-    public function getPackage(string $package)
+    public function getPackageAttribute($package)
     {
         return $this->package = json_decode($package);
     }

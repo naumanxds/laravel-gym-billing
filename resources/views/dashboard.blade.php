@@ -12,34 +12,34 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-6">
+        <div class="max-w-7xl mx-auto sm:px-2 lg:px-2">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="bg-white border-b border-gray-200">
                     <table class="shadow-lg bg-white table-auto w-full">
                         <thead>
                             <tr>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Id</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Name</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Email</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">CNIC</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Admin / Member</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Last Fee Paid On</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Package Details</th>
-                                <th class="bg-blue-200 border text-left px-8 py-4">Actions</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Id</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Name</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Email</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">CNIC</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Admin / Member</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Last Fee Paid On</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Package Details</th>
+                                <th class="bg-blue-200 border text-left px-2 py-2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($members as $member)
                             <tr>
-                                <td class="border px-8 py-4">{{ $member->id }}</td>
-                                <td class="border px-8 py-4">{{ ucfirst($member->name) }}</td>
-                                <td class="border px-8 py-4">{{ $member->email }}</td>
-                                <td class="border px-8 py-4">{{ $member->cnic }}</td>
-                                <td class="border px-8 py-4">{{ $member->roles->role_name }}</td>
-                                <td class="border px-8 py-4">{{ $member->updated_at->format('d-M-Y') }}</td>
-                                <td class="border px-8 py-4">{{ $member->package }}</td>
-                                <td class="border px-8 py-4">
+                                <td class="border px-2 py-2">{{ $member->id }}</td>
+                                <td class="border px-2 py-2">{{ ucfirst($member->name) }}</td>
+                                <td class="border px-2 py-2">{{ $member->email }}</td>
+                                <td class="border px-2 py-2">{{ $member->cnic }}</td>
+                                <td class="border px-2 py-2">{{ $member->roles->role_name }}</td>
+                                <td class="border px-2 py-2">{{ $member->updated_at->format('d-M-Y') }}</td>
+                                <td class="border px-2 py-2">{{ $member->package }}</td>
+                                <td class="border px-2 py-2">
                                     <a href="{{ route('update_fee', $member->id) }}">
                                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">Update Fee Date</button>
                                     </a>
