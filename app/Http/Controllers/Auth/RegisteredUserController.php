@@ -48,6 +48,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'cnic' => 'required|string|min:14|max:14'
         ];
+        
         if ($request->user_type == User::ROLE_ADMIN) {
             $validationCriteria['password'] = 'required|string|confirmed|min:8';
             $role = Role::where('role_name', User::ROLE_ADMIN)->first();
@@ -66,6 +67,7 @@ class RegisteredUserController extends Controller
             'package' => $request->package,
             'cnic' => $request->cnic,
         ]);
+
         $role->users()->save($user);
         if ($login) {
             Auth::login($user);
